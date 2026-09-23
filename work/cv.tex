@@ -1,0 +1,242 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=0.6in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{fontspec}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{eso-pic}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% --- FORMAT PAGE NUMBER ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage{}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+% --- COLOR DEFINITIONS ---
+\definecolor{primaryblue}{RGB}{68, 114, 196}
+\definecolor{textgrey}{RGB}{100, 100, 100}
+\definecolor{linegrey}{RGB}{180, 180, 180}
+
+% --- HYPERLINK SETUP ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    urlcolor=primaryblue
+}
+
+% --- PARAGRAPH & ITEMIZE SETUP ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist[itemize]{
+    leftmargin=2em,
+    labelsep=6pt,
+    itemsep=2pt,
+    parsep=0pt,
+    topsep=2pt
+}
+
+% --- SECTION HEADING FORMATTING ---
+\titleformat{\section}
+    {\color{primaryblue}\fontsize{18}{13}\selectfont\rmfamily\scshape}
+    {}{0em}{}
+    [\vspace{-10pt}\color{linegrey}\rule{\textwidth}{0.6pt}]
+\titlespacing*{\section}{0pt}{8pt}{2pt}
+
+\hfuzz=0.3pt\relax
+\emergencystretch=2em
+
+\begin{document}
+
+% ==================== HEADER ====================
+\begin{minipage}[t]{0.55\textwidth}
+    {\color{primaryblue}\fontsize{22}{26}\selectfont Javad Bajelan}
+\end{minipage}%
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft \small \color{textgrey}
+    Email: \href{mailto:uidopsu@gmail.com}{uidopsu@gmail.com} \\
+    Page: \href{https://uidops.github.io}{uidops.github.io} \\
+    GitHub: \href{https://github.com/uidops}{github.com/uidops} \\
+\end{minipage}
+
+\vspace{8pt}
+
+% ==================== EDUCATION ====================
+\section{Education}
+    \textbf{Azarbaijan Shahid Madani University} \hfill {\color{textgrey} Sep. 2022 -- Aug. 2026} \\
+    \textit{Bachelor of Science in Computer Science (B.Sc.)}, \textbf{GPA: 17.91/20} \hfill {\color{textgrey} Tabriz, Iran} \\[6pt]
+    Courses: AI (20/20), Data Mining (20/20), Information Retrieval (19.2/20), Compiler Design (20/20), Operating Systems (20/20), Database Systems (20/20), Algorithms and Data Structures (20/20), Theory of Computation (20/20), Linear Algebra (20/20), Abstract Algebra (20/20), Computer Systems (20/20)\\[6pt]
+    \underline{Bachelor's Research Project} (Supervisor: \href{https://scholar.google.com/citations?user=45WM0HwAAAAJ}{\color{primaryblue} Prof. Jalil Ghavidel Neycharan}):
+    \begin{itemize}[label=--]
+        \item Project Title: Persian Legal LLM Development with OCR, RAG, and LoRA Fine-Tuning. \href{https://github.com/uidops/DIVAN-LM}{GitHub}
+    \end{itemize}
+
+\vspace{3pt}
+
+% ==================== EXPERIENCE ====================
+\section{Working Experience}
+    \begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, itemsep=6pt]
+        \item \textbf{Innovatex -- United Arab Emirates} \hfill {\color{textgrey} Mar 2025 -- Present} \\
+        \textit{Go Backend Developer (\href{https://innovatex.ae}{innovatex.ae})}
+        \begin{itemize}[label=--, topsep=1pt]
+            \item \textbf{IXCbill billing \& cloud (ixnodes)} --- Go billing engine
+                with CloudStack VPS lifecycle management: invoice \& renewal lifecycle (reopen
+                expired/void payment windows, recover reusable provider attempts,
+                re-issue renewals), multi-rail payments with automatic fallback of double
+                bank payments to customer credit, per-jurisdiction VAT control, and a
+                revenue dashboard (all-time/24h KPIs, credit-drawdown deduplicated); VPS lifecycle orchestration
+                against CloudStack 4.20: create/destroy/expunge with 10-retry/10-min
+                backoff and admin re-provision, live VM state sync, bandwidth metering
+                (bytes-accurate, per-VM scoped), hostname auto-numbering, SSH-key/password
+                bootstrap.
+            \item \textbf{TirPay payment suite} --- 1,000+ commits: Go backend for
+                multi-currency payments and purchases (website payments, gift cards,
+                crypto/fiat exchange, credit cards) with a polling aggregator for crypto and world fiat
+                rates, plus a provider-agnostic credit-card platform: virtual/physical card
+                issuance, card \& transaction ledgers via IBS, wallet management and crypto deposit management
+                via GoWallet, IRR deposit via ZariPal.
+            \item \textbf{Innovatex BaaS Suite} --- provider-agnostic
+                white-label card API (Papara, Alaan, Mamo adapters) with a Go SDK
+                (HMAC request signing), admin panel and signed
+                mail-forwarding service; hardened security,
+                regression tests and per-service data scoping.
+            \item \textbf{GoWallet} --- multi-network crypto wallet API: hot/fee-wallet and token CRUD,
+                funds-collection flow and transaction monitoring, ipn, hardened security, ops.
+        \end{itemize}
+
+        \item \textbf{Meshtek -- Turkey} \hfill {\color{textgrey} Jul 2024 -- Mar 2025} \\
+        \textit{Go/Python Backend Developer (\href{https://meshtek.com.tr}{meshtek.com.tr})}
+        \begin{itemize}[label=--, topsep=1pt]
+            \item \textbf{Papara payment platform} --- Go payment gateway for msamex exchange + Django admin
+                panel (139 commits): card/atm operations, order flow, Telegram audit
+                notification.
+            \item \textbf{MSAMEX exchange Telegram bot} --- limit/market
+                orders with order-book sorting and open-order filters, deposit-address flow and
+                SQLite persistence, plus an integrated Xray VPN service (vmess/vless config
+                issuance, account sync, expiry-based deactivation, traffic
+                accounting).
+            \item \textbf{Market Maker} --- Go pure market maker strategy for
+                Multi-Exchanges (Binance, Bybit, Mexc, ...) with pricing rule (configurable spreads per
+                pair), trade-repair tooling, gRPC/protobuf plumbing and
+                commands, distributing bot instances across servers and central control panel,
+                ops.
+        \end{itemize}
+
+        \item \textbf{ShayTeck -- Iran} \hfill {\color{textgrey} Feb 2024 -- Apr 2024} \\
+        \textit{Remote Python Developer (\href{https://shayteck.com}{shayteck.com})}
+        \begin{itemize}[label=--, topsep=1pt]
+            \item Python relay bot pushing tweets,
+                retweets, quotes and media from tracked accounts to Telegram channels on a
+                admin panel, session/cookie handling, Postgres backend.
+            \item Pyrogram bot to create
+                and revoke chat invite links with live notifications, admin management and
+                \texttt{openpyxl} xlsx reports; Dockerized and Postgres backend.
+            \item Persian-language auto-responder bot mapping
+                keywords to canned text/media-group answers published to a target channel,
+                with admin UI and JSON-backed storage.
+        \end{itemize}
+
+        \item \textbf{Gentoo -- OpenSource} \hfill {\color{textgrey} Nov 2022 -- Jan 2025} \\
+        \textit{Clang/Musl Profile Maintainer (\href{https://github.com/clang-musl-overlay/clang-musl-overlay}{clang-musl-overlay} -- \href{https://github.com/clang-musl-overlay/gentoo-patchset}{gentoo-patchset})}
+        \begin{itemize}[label=--, topsep=1pt]
+            \item 125+ commits ($\sim$37\% of the
+                repo) packaging LLVM/Clang, Rust, Node.js, GHC and SBCL for a musl-based
+                toolchain.
+            \item Release engineering across 10+ toolchain packages, tracking upstream
+                versions to keep the overlay current with LLVM 17/18, Rust 1.70--1.80 and
+                Node.js 20/22.
+            \item Authored Clang/musl portability patches for
+                gcr, valgrind, ethtool, sshfs, ffcall and MIT Scheme (type mismatches,
+                \texttt{-lgcc} link errors).
+        \end{itemize}
+    \end{itemize}
+
+\vspace{3pt}
+
+% ==================== PROJECTS ====================
+\section{Academic Projects}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, itemsep=6pt]
+    \item \textbf{The Dolme Programming Language}  -- \href{https://github.com/uidops/dolme}{GitHub}
+    \begin{itemize}[label=--, topsep=1pt]
+        \item Built a complete compiler in Go for a type-checked language (typed
+            functions, recursion, \texttt{if/while}, break/continue): lexer, LL(1)
+            parser with explicit parsing table, syntax-directed translation to a
+            three-address-code IR, and an IR interpreter.
+        \item Added semantic checks -- declaration type validation, call
+            arity/type checking, bool-typed operators -- with backpatching to handle
+            returns and branching in code generation.
+        \item Wrote an ARM64 macOS assembly backend (large constants via
+            \texttt{ldr} pseudo-instructions) and a differential integration suite:
+            all 19 example programs (Taylor-series sine, Newton sqrt, primality,
+            Fibonacci) run both interpreted and as native binaries with outputs
+            compared against expected results.
+    \end{itemize}
+
+    \item \textbf{LOB Sequence Classification} -- \href{https://github.com/uidops}{GitHub}.
+    \begin{itemize}
+        \item Built the training \& evaluation harness for mid-price direction
+            prediction on a public LOB dataset: 144 features, five horizons (10--100
+            ticks), sliding-window sequences over pre-split walk-forward folds.
+            \item Trained and cross-validated MLP/CNN/LSTM/TCN baselines against
+            tensorized (TABL) and attention-based (TLOB) models, reporting
+            mean$\pm$std macro-F1 per horizon (up to 0.80) with confusion-matrix
+            analysis.
+        \item Refactored the data pipeline (LZMA-compressed matrices $\rightarrow$
+            typed NumPy loaders, centralized preprocessing/model defaults) and
+            instrumented effective-attention extraction to inspect what the models
+            actually attend to.
+    \end{itemize}
+
+    \item \textbf{RISC-V Libc} -- \href{https://github.com/uidops}{GitHub}
+    \begin{itemize}
+        \item Building an experimental C standard library for RISC-V 64 with low-level libc routines.
+        \item Uses a cross-compilation workflow with RISC-V tooling and emulator-based validation.
+    \end{itemize}
+\end{itemize}
+
+\vspace{3pt}
+
+% ==================== TEACHING EXPERIENCE ====================
+\section{Teaching Experience}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, itemsep=6pt]
+    \item \textbf{Teaching Assistant} at Azarbaijan Shahid Madani University \hfill {\color{textgrey} 2023-2025}
+    \begin{itemize}[topsep=0pt]    \item Fundamentals of Logic \hfill Supervisor: \href{https://scholar.google.com/citations?user=dKRgAsIAAAAJ}{\color{primaryblue} Prof. Somayyeh Tari}
+        \item Computation Theory \hfill Supervisor: \href{https://scholar.google.com/citations?user=dKRgAsIAAAAJ}{\color{primaryblue} Prof. Somayyeh Tari}
+        \item Linear Algebra \hfill Supervisor: \href{https://scholar.google.com/citations?user=dKRgAsIAAAAJ}{\color{primaryblue} Prof. Somayyeh Tari}
+    \end{itemize}
+\end{itemize}
+
+\vspace{3pt}
+
+% ==================== TECHNICAL SKILLS ====================
+\section{Skills}
+\begin{itemize}[label=\tiny$\bullet$, leftmargin=1em, itemsep=6pt]
+    \item \textbf{Programming Languages:} Go, Python, C/C++, Rust, x86/RISC-V/ARM64 Assembly, Coq/Rocq, Haskell
+    \item \textbf{Frameworks / Libraries:} Go (Kratos, GORM, Gin, Echo, Fiber, gRPC); Python (Django, Flask, Pydantic, PyTorch, Transformers, Scikti-learn, NLTK, Scipy, Pandas, Numpy, Scapy); C (OpenMP, OpenSSL, pthreads, libcurl, libuv)
+    \item \textbf{Developer / Debugging Tools:} LLVM/Clang, GCC, GDB, LLDB, ASan, radare2, Ghidra, GNU Binutils (objdump, readelf), strace, ltrace, Valgrind, perf, Wireshark, Nginx, Git, Latex
+    \item \textbf{Backend / Systems:} Microservices, Linux/Unix Systems Programming, POSIX APIs, Processes \& Threads, Concurrency \& Synchronization, Socket Programming, TCP/IP, Distributed Systems, REST/gRPC Services, Performance Analysis, Memory Debugging, Secure Coding, Load Balancing, Caching, Docker, CI/CD, GitHub Actions, Linux Administration, Infrastructure as Code (IaC), Firewalls
+    \item \textbf{Algorithms / ML:} Algorithm Development, Deep Learning, Transformer Architectures, Retrieval-Augmented Generation, LoRA/PEFT Fine-Tuning, Search Engines, Embeddings \& Vector Search
+    \item \textbf{Theoretical:} First-Order Logic, Mathematical Logic, Computability \& Complexity Theory, Type Theory, Category Theory, Lambda Calculus, Proof Theory, Denotational \& Operational Semantics, Axiomatic Semantics, Intuitionistic Logic, Relational Model, Relational Algebra \& Calculus, Schema Design \& Normalization
+    \item \textbf{Languages:} English, Persian
+\end{itemize}
+
+\vspace{3pt}
+
+
+% ==================== QR-CODE ====================
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \makebox[\dimexpr\paperwidth-15mm\relax][r]{%
+      \raisebox{15mm}{%
+        \IfFileExists{assets/qr.png}{\includegraphics[width=22mm]{assets/qr.png}}{}%
+      }%
+    }%
+  }%
+}
+
+\end{document}
